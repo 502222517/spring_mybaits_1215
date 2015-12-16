@@ -34,8 +34,19 @@
 		
 		
 		<bean id="userDao" class="cn.itcast.ssm.dao.UserDaoImpl" >
-			<property name="sqlSessionFactory" ref="sqlSessionFactory" ></property>
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		
+		</bean>
+		
+		<!-- <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" >
+			<property name="mapperInterface" value="cn.itcast.ssm.mapper.UserMapper" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		</bean> -->
+		
+		
+		<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" >
+			<property name="basePackage" value="cn.itcast.ssm.mapper" />
+			<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		</bean>
 		 
 </beans>
